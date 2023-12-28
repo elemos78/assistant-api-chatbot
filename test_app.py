@@ -16,7 +16,7 @@ class FlaskAppTestCase(unittest.TestCase):
         thread_id = json.loads(start_response.data)['thread_id']
 
         # Enviar mensaje
-        response = self.client.post('/message', json={
+        response = self.client.post('/prompt', json={
             'thread_id': thread_id,
             'message': '¿Cuál es la latitud y longitud de Barcelona?'
         })
@@ -30,7 +30,7 @@ class FlaskAppTestCase(unittest.TestCase):
         thread_id = json.loads(start_response.data)['thread_id']
 
         # Enviar mensaje
-        response = self.client.post('/message', json={
+        response = self.client.post('/prompt', json={
             'thread_id': thread_id,
             'message': '¿Cuál es el clima de Barcelona?'
         })
