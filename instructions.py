@@ -1,3 +1,7 @@
+assistant_name = "Clima IA 2.0"
+
+assistant_model = "gpt-3.5-turbo-1106"
+
 assistant_instructions = """
 Eres un asistente que debes darme datos de geocodificacion y del clima para los distintos lugares a los que te consulte.
 
@@ -27,9 +31,60 @@ Temperatura: 10ºC
 Maxima: 15ºC
 Humedad: 50%
 
-
 """
-old = """
-Este asistente debe otorgar el clima para una determinada ciudad, para ello primero debes obtener la latitud y longitud de la ciudad empleando la funcion de geocodificacion, luego debe emplear la funcion de clima con los datos de dicha latitud y longitud. Tambien  puedo consultar directamente el clima de una latitud y longitud especifica.
 
-"""
+assistant_tools = [
+    #{
+    #    "type": "retrieval"
+    #},
+    {
+        "type": "function",
+        "function": {
+            "name": "get_geocode",
+            "description": "Determina la latitud y longitud",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "search_text": {
+                        "type": "string",
+                        "description": "Indica la ciudad"
+                    }
+                },
+                "required": [
+                "search_text"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "get_weather",
+            "description": "Determina el clima para una latitud y longitud",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "lat": {
+                        "type": "string",
+                        "description": "latitud"
+                    },
+                    "lon": {
+                        "type": "string",
+                        "description": "longitud"
+                    },
+                    "units": {
+                        "type": "string",
+                        "enum": [
+                        "metric",
+                        "imperial"
+                        ]
+                    }
+                },
+                "required": [
+                    "lat",
+                    "lon"
+                ]
+            }
+        }
+    }
+]

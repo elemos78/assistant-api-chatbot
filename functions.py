@@ -3,7 +3,6 @@ import requests
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
-from prompts import assistant_instructions
 
 class Api:
 

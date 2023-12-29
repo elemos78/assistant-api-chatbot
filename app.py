@@ -6,12 +6,13 @@ from flask import Flask, request, jsonify
 import openai
 from openai import OpenAI
 from functions import Api
+from instructions import assistant_instructions, assistant_name, assistant_model, assistant_tools
 
 class OpenAIClient:
     def __init__(self, api_key):
         self.assistant_file_path = 'assistant.json'
         self.client = OpenAI(api_key=api_key)
-        self.assistant_id = self.create_assistant(self.client)
+        self.assistant_id = self.create_load_assistant(self.client)
         self.api_client = Api()
 
     def log_message(self, thread_id, message):
@@ -67,75 +68,20 @@ class OpenAIClient:
                                                                 )
 
     # Create or load assistant
-    def create_assistant(self, client):        
+    def create_load_assistant(self, client):        
         if os.path.exists(self.assistant_file_path):
             with open(self.assistant_file_path, 'r') as file:
                 assistant_data = json.load(file)
                 assistant_id = assistant_data['assistant_id']
         else:
             assistant = client.beta.assistants.create(
+                name=assistant_name,
                 instructions=assistant_instructions,
-                model="gpt-3.5-turbo-1106",
-                tools=[
-                    #{
-                    #    "type": "retrieval"
-                    #},
-                    {
-                        "type": "function",
-                        "function": {
-                            "name": "get_geocode",
-                            "description": "Determina la latitud y longitud",
-                            "parameters": {
-                                "type": "object",
-                                "properties": {
-                                    "search_text": {
-                                        "type": "string",
-                                        "description": "Indica la ciudad"
-                                    }
-                                },
-                                "required": [
-                                "search_text"
-                                ]
-                            }
-                        }
-                    },
-                    {
-                        "type": "function",
-                        "function": {
-                            "name": "get_weather",
-                            "description": "Determina el clima para una latitud y longitud",
-                            "parameters": {
-                                "type": "object",
-                                "properties": {
-                                    "lat": {
-                                        "type": "string",
-                                        "description": "latitud"
-                                    },
-                                    "lon": {
-                                        "type": "string",
-                                        "description": "longitud"
-                                    },
-                                    "units": {
-                                        "type": "string",
-                                        "enum": [
-                                        "metric",
-                                        "imperial"
-                                        ]
-                                    }
-                                },
-                                "required": [
-                                    "lat",
-                                    "lon"
-                                ]
-                            }
-                        }
-                    }
-                ]#,
-                #file_ids=[file.id]
+                model=assistant_model,
+                tools=assistant_tools
                 )
-
-            # Create a new assistant.json file to load on future runs
-            with open(assistant_file_path, 'w') as file:
+            
+            with open(self.assistant_file_path, 'w') as file:
                 json.dump({'assistant_id': assistant.id}, file)
             assistant_id = assistant.id
 
@@ -150,7 +96,7 @@ class FlaskApp:
           self.setup_routes()
 
     def run(self):
-        port = int(os.environ.get('PORT', 8080))
+        port = int(os.environ.get('PORT', 5000))
         self.app.run(host='0.0.0.0', port=port)
 
     def setup_routes(self):
