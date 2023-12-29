@@ -14,15 +14,20 @@ class OpenAIClient:
         self.assistant_id = self.create_assistant(self.client)
         self.api_client = Api()
 
+    def log_message(self, thread_id, message):
+        with open(f"{thread_id}.log", "a") as log_file:
+            log_file.write(message + "\n\n")
+
     def start_conversation(self):
         thread = self.client.beta.threads.create()
+        self.log_message(thread.id, "Iniciando conversación")
         return thread.id
 
-    def send_message(self, thread_id, user_input):
-        print(f"send_message: {thread_id} - {user_input}")
+    def send_message(self, thread_id, user_input):        
         self.client.beta.threads.messages.create(thread_id=thread_id,
                                                  role="user",
                                                  content=user_input)
+        self.log_message(thread_id, f"Usuario: {user_input}")
 
     def get_response(self, thread_id):
         print(f"get_response: {thread_id}")
@@ -43,6 +48,7 @@ class OpenAIClient:
             count += 1
 
         messages = self.client.beta.threads.messages.list(thread_id=thread_id)
+        self.log_message(thread_id, f"Asistente: {messages.data[0].content[0].text.value}")
         return messages.data[0].content[0].text.value
 
     def exec_tool_calls(self, run_status, thread_id, run_id):
