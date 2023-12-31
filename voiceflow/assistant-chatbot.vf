@@ -1,0 +1,908 @@
+{
+  "version": {
+    "name": "Initial Version",
+    "topics": [
+      {
+        "type": "DIAGRAM",
+        "sourceID": "63067e968cbdb692c97b063a"
+      }
+    ],
+    "folders": {},
+    "_version": 5,
+    "creatorID": 288643,
+    "prototype": {
+      "data": {
+        "name": "assistant-chatbot",
+        "locales": [
+          "es-ES"
+        ]
+      },
+      "model": {
+        "intents": [],
+        "slots": []
+      },
+      "context": {
+        "stack": [
+          {
+            "programID": "63067e968cbdb692c97b063a",
+            "storage": {},
+            "variables": {},
+            "diagramID": "63067e968cbdb692c97b063a"
+          }
+        ],
+        "variables": {}
+      },
+      "surveyorContext": {
+        "slotsMap": {},
+        "platform": "webchat",
+        "products": {},
+        "extraSlots": [],
+        "interfaces": [],
+        "permissions": [],
+        "extraIntents": [],
+        "usedEventsSet": [],
+        "usedIntentsSet": [],
+        "goToIntentsSet": []
+      },
+      "settings": {},
+      "platform": "webchat",
+      "type": "chat"
+    },
+    "variables": [
+      "sessions",
+      "user_id",
+      "timestamp",
+      "platform",
+      "locale",
+      "url",
+      "thread_id"
+    ],
+    "components": [],
+    "manualSave": false,
+    "platformData": {
+      "slots": [],
+      "intents": [
+        {
+          "key": "None",
+          "name": "None",
+          "slots": [],
+          "inputs": [],
+          "noteID": null
+        }
+      ],
+      "settings": {
+        "restart": true,
+        "repeat": 100,
+        "locales": [
+          "es-ES"
+        ],
+        "defaultVoice": "Conchita"
+      },
+      "publishing": {
+        "watermark": false,
+        "title": "assistant-chatbot",
+        "spacing": {
+          "side": 24,
+          "bottom": 24
+        }
+      },
+      "platform": "webchat"
+    },
+    "autoSaveFromRestore": false,
+    "_id": "658e3ca35b222405d4e4a307",
+    "updatedAt": "2023-12-29T03:27:31.091Z",
+    "domains": [
+      {
+        "id": "clqq2pf940nbc07rl7bcwd2h2",
+        "name": "Home",
+        "live": true,
+        "topicIDs": [
+          "63067e968cbdb692c97b063a"
+        ],
+        "rootDiagramID": "63067e968cbdb692c97b063a",
+        "updatedBy": 288643,
+        "updatedAt": "2023-12-29T03:56:09.449Z"
+      }
+    ],
+    "projectID": "658e3ca35b222405d4e4a306",
+    "rootDiagramID": "63067e968cbdb692c97b063a"
+  },
+  "diagrams": {
+    "63067e968cbdb692c97b063a": {
+      "name": "ROOT",
+      "type": "TOPIC",
+      "zoom": 100,
+      "nodes": {
+        "start00000000000000000000": {
+          "type": "start",
+          "data": {
+            "name": "Start",
+            "color": "#56b365",
+            "steps": [],
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "658e3d1df02b99f36274280f",
+                  "id": "6032afcf359e8c14c06c0319",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          447.95,
+                          -452.47
+                        ]
+                      },
+                      {
+                        "point": [
+                          471.95,
+                          -452.47
+                        ]
+                      },
+                      {
+                        "point": [
+                          471.95,
+                          -347.47
+                        ]
+                      },
+                      {
+                        "point": [
+                          471.18,
+                          -347.47
+                        ]
+                      },
+                      {
+                        "point": [
+                          471.18,
+                          -242.48
+                        ]
+                      },
+                      {
+                        "point": [
+                          495.18,
+                          -242.48
+                        ],
+                        "allowedToTop": false
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            },
+            "label": "Start"
+          },
+          "nodeID": "start00000000000000000000",
+          "coords": [
+            383.3060603024551,
+            -474.46821353536086
+          ]
+        },
+        "658e3cd2f02b99f3627427fb": {
+          "type": "api",
+          "data": {
+            "name": "",
+            "url": "{{[url].url}}/start",
+            "body": [],
+            "params": [],
+            "method": "GET",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "val": "application/json"
+              }
+            ],
+            "content": "",
+            "mappings": [
+              {
+                "path": "response.thread_id",
+                "var": "thread_id"
+              }
+            ],
+            "bodyType": "formData",
+            "selectedAction": "Make a GET Request",
+            "selectedIntegration": "Custom API",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "658e3ea3f02b99f362742819",
+                  "id": "658e3cd2f02b99f3627427fc",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          834.75,
+                          19.61
+                        ]
+                      },
+                      {
+                        "point": [
+                          911.18,
+                          19.61
+                        ]
+                      },
+                      {
+                        "point": [
+                          911.18,
+                          -246.63
+                        ]
+                      },
+                      {
+                        "point": [
+                          987.6,
+                          -246.63
+                        ],
+                        "allowedToTop": false
+                      }
+                    ]
+                  }
+                },
+                "fail": {
+                  "type": "fail",
+                  "target": "658e420bf02b99f362742846",
+                  "id": "658e3cd2f02b99f3627427fd",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          834.75,
+                          74.11
+                        ]
+                      },
+                      {
+                        "point": [
+                          908.04,
+                          74.11
+                        ]
+                      },
+                      {
+                        "point": [
+                          908.04,
+                          299.9
+                        ]
+                      },
+                      {
+                        "point": [
+                          981.33,
+                          299.9
+                        ],
+                        "allowedToTop": false
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "658e3cd2f02b99f3627427fb"
+        },
+        "658e3cd2f02b99f3627427fe": {
+          "type": "block",
+          "data": {
+            "name": "Chat Start",
+            "steps": [
+              "658e3cd2f02b99f3627427fb"
+            ],
+            "color": "#56b365"
+          },
+          "nodeID": "658e3cd2f02b99f3627427fe",
+          "coords": [
+            668.7523170379587,
+            -129.6428571512526
+          ]
+        },
+        "658e3d1df02b99f36274280f": {
+          "type": "setV2",
+          "data": {
+            "name": "",
+            "sets": [
+              {
+                "type": "advance",
+                "variable": "url",
+                "expression": "\"https://glasgow-assumed-affiliation-changing.trycloudflare.com\""
+              }
+            ],
+            "title": "url",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "658e3cd2f02b99f3627427fb",
+                  "id": "658e3d1df02b99f362742810",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          827.18,
+                          -242.23
+                        ]
+                      },
+                      {
+                        "point": [
+                          858.75,
+                          -242.23
+                        ]
+                      },
+                      {
+                        "point": [
+                          858.75,
+                          -50.64
+                        ]
+                      },
+                      {
+                        "point": [
+                          834.75,
+                          -50.64
+                        ],
+                        "reversed": true,
+                        "allowedToTop": false
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "658e3d1df02b99f36274280f"
+        },
+        "658e3d1df02b99f362742811": {
+          "type": "block",
+          "data": {
+            "name": "set URL",
+            "steps": [
+              "658e3d1df02b99f36274280f"
+            ],
+            "color": "#dc8879"
+          },
+          "nodeID": "658e3d1df02b99f362742811",
+          "coords": [
+            661.1766182762153,
+            -321.4763195654272
+          ]
+        },
+        "658e3ea3f02b99f362742819": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "qeks3q1k",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Hola soy el asistente del clima y geolocalizacion. Puedes preguntarme sobre la ubicación de un lugar o el clima del mismo."
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": null,
+                  "id": "658e3ea3f02b99f36274281a",
+                  "data": {}
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "658e3ea3f02b99f362742819"
+        },
+        "658e3ea3f02b99f36274281b": {
+          "type": "block",
+          "data": {
+            "name": "Prompt User",
+            "steps": [
+              "658e3ea3f02b99f362742819",
+              "658e3f16f02b99f362742822"
+            ],
+            "color": "#5b9fd7"
+          },
+          "nodeID": "658e3ea3f02b99f36274281b",
+          "coords": [
+            1153.5984661913585,
+            -325.63016565832817
+          ]
+        },
+        "658e3f16f02b99f362742822": {
+          "type": "captureV2",
+          "data": {
+            "name": "Capture",
+            "intentScope": "GLOBAL",
+            "capture": {
+              "type": "query",
+              "variable": "last_utterance"
+            },
+            "noReply": null,
+            "noMatch": null,
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "658e3f60f02b99f362742831",
+                  "id": "658e3f16f02b99f362742823",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1319.6,
+                          -99.63
+                        ]
+                      },
+                      {
+                        "point": [
+                          1456.37,
+                          -98.73
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "else": {
+                  "type": "else",
+                  "target": null,
+                  "id": "658e3f16f02b99f362742824"
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "658e3f16f02b99f362742822",
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "658e3f60f02b99f362742831": {
+          "type": "api",
+          "data": {
+            "name": "",
+            "url": "{{[url].url}}/prompt",
+            "body": [
+              {
+                "key": "",
+                "val": ""
+              }
+            ],
+            "params": [],
+            "method": "POST",
+            "headers": [
+              {
+                "key": "Content-Type",
+                "val": "application/json"
+              }
+            ],
+            "content": "{\n  \"thread_id\": \"{thread_id}\",\n  \"message\": \"{last_utterance}\"\n}",
+            "mappings": [
+              {
+                "path": "response.response",
+                "var": "last_response"
+              }
+            ],
+            "bodyType": "rawInput",
+            "selectedAction": "Make a POST Request",
+            "selectedIntegration": "Custom API",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "658e405df02b99f36274283c",
+                  "id": "658e3f60f02b99f362742832",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1456.37,
+                          -28.48
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          1390.25,
+                          -28.48
+                        ]
+                      },
+                      {
+                        "point": [
+                          1390.25,
+                          109.7
+                        ]
+                      },
+                      {
+                        "point": [
+                          1324.14,
+                          109.7
+                        ],
+                        "reversed": true,
+                        "allowedToTop": false
+                      }
+                    ]
+                  }
+                },
+                "fail": {
+                  "type": "fail",
+                  "target": "658e4243f02b99f362742855",
+                  "id": "658e3f60f02b99f362742833",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          1456.37,
+                          26.02
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          1422.14,
+                          26.02
+                        ]
+                      },
+                      {
+                        "point": [
+                          1422.14,
+                          313.26
+                        ]
+                      },
+                      {
+                        "point": [
+                          1446.14,
+                          313.26
+                        ],
+                        "allowedToTop": false
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "658e3f60f02b99f362742831"
+        },
+        "658e3f60f02b99f362742834": {
+          "type": "block",
+          "data": {
+            "name": "Assistant",
+            "steps": [
+              "658e3f60f02b99f362742831"
+            ],
+            "color": "#56b365"
+          },
+          "nodeID": "658e3f60f02b99f362742834",
+          "coords": [
+            1622.3676924303547,
+            -177.72631956542705
+          ]
+        },
+        "658e405df02b99f36274283c": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "n6x63qt8",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": ""
+                      },
+                      {
+                        "id": "last_response",
+                        "name": "last_response",
+                        "isSlot": false,
+                        "type": "variable",
+                        "children": [
+                          {
+                            "text": ""
+                          }
+                        ]
+                      },
+                      {
+                        "text": " "
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "658e3f16f02b99f362742822",
+                  "id": "658e405df02b99f36274283d",
+                  "data": {
+                    "points": [
+                      {
+                        "point": [
+                          992.14,
+                          109.7
+                        ],
+                        "reversed": true
+                      },
+                      {
+                        "point": [
+                          963.6,
+                          109.7
+                        ]
+                      },
+                      {
+                        "point": [
+                          963.6,
+                          -108.63
+                        ]
+                      },
+                      {
+                        "point": [
+                          987.6,
+                          -108.63
+                        ],
+                        "allowedToTop": false
+                      }
+                    ]
+                  }
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "658e405df02b99f36274283c"
+        },
+        "658e405df02b99f36274283e": {
+          "type": "block",
+          "data": {
+            "name": "Assistant response",
+            "steps": [
+              "658e405df02b99f36274283c"
+            ],
+            "color": "#5b9fd7"
+          },
+          "nodeID": "658e405df02b99f36274283e",
+          "coords": [
+            1158.1369276383994,
+            30.703434420503555
+          ]
+        },
+        "658e420bf02b99f362742846": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "ws15s3qdx",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Error al iniciar el chat!"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "658e4225f02b99f362742850",
+                  "id": "658e420bf02b99f362742847",
+                  "data": {}
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "658e420bf02b99f362742846"
+        },
+        "658e420bf02b99f362742848": {
+          "type": "block",
+          "data": {
+            "name": "New Block 6",
+            "steps": [
+              "658e420bf02b99f362742846"
+            ],
+            "color": "#CB627B"
+          },
+          "nodeID": "658e420bf02b99f362742848",
+          "coords": [
+            1149.830455407683,
+            242.1457363230495
+          ]
+        },
+        "658e4243f02b99f362742855": {
+          "type": "text",
+          "data": {
+            "name": "Text",
+            "texts": [
+              {
+                "id": "7l18g3qfl",
+                "content": [
+                  {
+                    "children": [
+                      {
+                        "text": "Error al consultar!"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "canvasVisibility": "preview",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {
+                "next": {
+                  "type": "next",
+                  "target": "658e4263f02b99f36274285f",
+                  "id": "658e4243f02b99f362742856",
+                  "data": {}
+                }
+              },
+              "dynamic": []
+            }
+          },
+          "nodeID": "658e4243f02b99f362742855"
+        },
+        "658e4263f02b99f36274285e": {
+          "type": "exit",
+          "data": {
+            "name": "",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "nodeID": "658e4263f02b99f36274285e"
+        },
+        "658e4263f02b99f36274285f": {
+          "type": "actions",
+          "data": {
+            "name": "",
+            "steps": [
+              "658e4263f02b99f36274285e"
+            ]
+          },
+          "nodeID": "658e4263f02b99f36274285f",
+          "coords": [
+            0,
+            0
+          ]
+        },
+        "658e4243f02b99f362742857": {
+          "type": "block",
+          "data": {
+            "name": "API error",
+            "steps": [
+              "658e4243f02b99f362742855"
+            ],
+            "color": "#CB627B"
+          },
+          "nodeID": "658e4243f02b99f362742857",
+          "coords": [
+            1612.1381265344953,
+            234.26113063628486
+          ]
+        },
+        "658e4225f02b99f36274284f": {
+          "type": "exit",
+          "data": {
+            "name": "",
+            "portsV2": {
+              "byKey": {},
+              "builtIn": {},
+              "dynamic": []
+            }
+          },
+          "nodeID": "658e4225f02b99f36274284f"
+        },
+        "658e4225f02b99f362742850": {
+          "type": "actions",
+          "data": {
+            "name": "Actions",
+            "steps": [
+              "658e4225f02b99f36274284f"
+            ]
+          },
+          "nodeID": "658e4225f02b99f362742850",
+          "coords": [
+            0,
+            0
+          ]
+        }
+      },
+      "offsetX": 253.35515175803596,
+      "offsetY": 579.5745708282886,
+      "modified": 1661370006,
+      "children": [],
+      "creatorID": 288643,
+      "variables": [],
+      "menuItems": [
+        {
+          "type": "NODE",
+          "sourceID": "start00000000000000000000"
+        }
+      ],
+      "menuNodeIDs": [],
+      "intentStepIDs": [],
+      "_id": "658e3ca35b222405d4e4a308",
+      "diagramID": "63067e968cbdb692c97b063a",
+      "versionID": "658e3ca35b222405d4e4a307"
+    }
+  },
+  "entities": [],
+  "entityVariants": [],
+  "intents": [
+    {
+      "id": "None",
+      "environmentID": "658e3ca35b222405d4e4a307",
+      "name": "None",
+      "createdByID": 288643,
+      "description": null,
+      "automaticReprompt": false,
+      "entityOrder": [],
+      "createdAt": "2023-12-29T03:27:33.000Z",
+      "updatedAt": "2023-12-29T03:27:33.000Z",
+      "folderID": null,
+      "assistantID": "658e3ca35b222405d4e4a306",
+      "updatedByID": 288643
+    }
+  ],
+  "utterances": [],
+  "requiredEntities": [],
+  "responses": [],
+  "responseVariants": [],
+  "responseAttachments": [],
+  "responseDiscriminators": [],
+  "attachments": [],
+  "cardButtons": [],
+  "project": {
+    "type": "chat",
+    "name": "assistant-chatbot",
+    "image": "",
+    "teamID": "peEqG8JrjD",
+    "members": [],
+    "privacy": "private",
+    "platform": "webchat",
+    "_version": 1.2,
+    "linkType": "STRAIGHT",
+    "creatorID": 288643,
+    "updatedBy": 288643,
+    "apiPrivacy": "public",
+    "platformData": {
+      "invocationName": "template project general"
+    },
+    "customThemes": [],
+    "aiAssistSettings": {
+      "aiPlayground": true
+    },
+    "_id": "658e3ca35b222405d4e4a306",
+    "updatedAt": "2023-12-29T03:59:12.456Z",
+    "devVersion": "658e3ca35b222405d4e4a307",
+    "liveVersion": "658e4412e5b62431d09116be"
+  },
+  "_version": "1.2",
+  "variableStates": []
+}

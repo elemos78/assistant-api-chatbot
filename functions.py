@@ -3,11 +3,13 @@ import requests
 import os
 from dotenv import load_dotenv
 from openai import OpenAI
+from instructions import assistant_tools
 
 class Api:
 
-    #las funciones que luego hay que codificar y se corresponden con las tool calls, son atributos de clase para indicar las funciones que ofrece esta api
-    functions_list = ["get_geocode", "get_weather"]
+    # las funciones que luego hay que codificar y se corresponden con las tool calls, son atributos de clase para indicar las funciones que ofrece esta api
+    # functions_list = ["get_geocode", "get_weather"]
+    functions_list = [tool["function"]["name"] for tool in assistant_tools]
 
     def __init__(self):
         # Carga las variables de entorno desde .env
